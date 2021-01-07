@@ -1,0 +1,56 @@
+{
+  "name": "auto-insurance2",
+  "version": "0.1.0",
+  "private": true,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "dependencies": {
+    "@avto-dev/vehicle-logotypes": "^2.0.0",
+    "@material-ui/core": "^4.11.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "antd": "^4.3.3",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "bootstrap-switch-button-react": "^1.2.0",
+    "car-query": "^1.0.10",
+    "http-proxy-middleware": "^1.0.6",
+    "jquery": "^3.5.1",
+    "react": "^16.13.1",
+    "react-datepicker": "^3.0.0",
+    "react-day-picker": "^7.4.8",
+    "react-dom": "^16.13.1",
+    "react-lottie": "^1.2.3",
+    "react-modern-datepicker": "^1.1.0",
+    "react-scripts": "^3.4.3",
+    "react-sharingbuttons": "^1.0.0",
+    "react-step-wizard": "^5.3.2",
+    "react-xml-parser": "^1.1.8",
+    "uniqid": "^5.2.0",
+    "uuid": "^8.1.0",
+    "zipcode-data": "^1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "CI= react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

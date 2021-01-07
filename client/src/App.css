@@ -1,0 +1,67 @@
+body {
+	font-family: "Ubuntu", sans-serif;
+	box-sizing: border-box;
+	
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+	font-family: "Ubuntu", sans-serif;
+}
+
+
+.right-number {
+
+	float: right;
+	padding: 10px;
+	font-size: large;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.center {
+	text-align: center;
+}
+
+.tcpa {
+	font-size: small;
+	font-weight: lighter;
+	max-width: 100%;
+}
+
+.more {
+	border-radius: 20px;
+	background-color: white;
+	min-height: 700px;
+	position: relative;
+	min-width: 300px;
+	-webkit-box-shadow: 0px 47px 72px 3px rgba(128, 128, 128, 0.11);
+	-moz-box-shadow: 0px 47px 72px 3px rgba(128, 128, 128, 0.11);
+	box-shadow: 0px 47px 72px 3px rgba(128, 128, 128, 0.11);
+}
+
+.number { 
+	padding: 10px;
+	font-size: large;
+	color: #008ada;
+	font-weight: bold;
+}
+
+
+@media (max-width: 320px) {
+	.main-content-inner-container {
+		height: 300px;
+	}
+}
+
+/* 
+@media only screen and (max-width: 720px) {
+	.main-content-inner-container {
+		min-height: 145vh !important;
+	}
+} */
