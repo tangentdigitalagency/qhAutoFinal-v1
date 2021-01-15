@@ -16,16 +16,17 @@ class S1ZipCode extends Component {
     loading: true,
   };
   onFinish = (value) => {
-    var check = false;
+    // this.props.nextStep();
+    // var check = false;
 
-    console.log("values is " + value.zipcode.number)
+    // console.log("values is " + value.zipcode.number)
 
-    axios
-      .post("https://qhautoformreact.herokuapp.com/returnzip", { zipCode: value.zipcode })
-      .then((res) => {
-        this.setState({ getZip: res.data }, () => {
-          console.log(this.state.getZip);
-        });
+    // axios
+    //   .post("https://qhautoformreact.herokuapp.com/returnzip", { zipCode: value.zipcode })
+    //   .then((res) => {
+    //     this.setState({ getZip: res.data }, () => {
+    //       console.log(this.state.getZip);
+    //     });
         console.log(this.state.getZip);
         console.log(this.props.city);
         this.props.zipCodeCity(this.state.getZip.city);
@@ -34,53 +35,53 @@ class S1ZipCode extends Component {
         this.props.state(this.state.getZip.state_id);
         this.props.active_license(this.state.getZip.state_id);
         this.props.nextStep();
-      })
-      .catch((err) => message.error("Please Enter A Valid Zipcode!"));
+      // })
+      // .catch((err) => message.error("Please Enter A Valid Zipcode!"));
   };
 
-  checkZipCode = (rule, value) => {
-    var check = false;
-    this.state.zipcodes.map(
-      (data) =>
-        (data === value.number || data === Number(value.number)) &&
-        (check = true)
-    );
+  // checkZipCode = (rule, value) => {
+  //   var check = false;
+  //   this.state.zipcodes.map(
+  //     (data) =>
+  //       (data === value.number || data === Number(value.number)) &&
+  //       (check = true)
+  //   );
 
-    if (check === true) {
-      return Promise.resolve();
-    }
-    return Promise.reject("Please Enter A Valid Zipcode!");
-  };
+  //   if (check === true) {
+  //     return Promise.resolve();
+  //   }
+  //   return Promise.reject("Please Enter A Valid Zipcode!");
+  // };
 
   componentDidMount = () => {
     console.log(zipcodeList.zipcodes);
     console.log("that was zipcodes");
-    axios.get("/getzip").then((res) => {
-      this.setState({ zipcodes: res.data }, () =>
-        console.log(this.state.zipcodes)
-      );
-      console.log(res.data);
-    });
+    // axios.get("/getzip").then((res) => {
+    //   this.setState({ zipcodes: res.data }, () =>
+    //     console.log(this.state.zipcodes)
+    //   );
+    //   console.log(res.data);
+    // });
     this.setState({ zipcodes: zipcodeList.zipcodes });
-    axios
-      .get("https://qhautoformreact.herokuapp.com/getzip")
-      .then((res) => {
-        this.setState(
-          {
-            ...this.state,
-            zipcodes: res.data,
-            loading: false
-          },
-          () => {
-            console.log(this.state.zipcodes);
-          }
-        );
-      })
-      .catch((err) => {
-        if (err) throw err;
-      });
-    console.log(this.state.zipcodes);
-  };
+  //   axios
+  //     .get("https://qhautoformreact.herokuapp.com/getzip")
+  //     .then((res) => {
+  //       this.setState(
+  //         {
+  //           ...this.state,
+  //           zipcodes: res.data,
+  //           loading: false
+  //         },
+  //         () => {
+  //           console.log(this.state.zipcodes);
+  //         }
+  //       );
+  //     })
+  //     .catch((err) => {
+  //       if (err) throw err;
+  //     });
+  //   console.log(this.state.zipcodes);
+   };
 
   render() {
     const list = this.state.zipcodes;
@@ -106,9 +107,11 @@ class S1ZipCode extends Component {
                   },
                   ({ getFieldValue }) => ({
                     validator(rule, value) {
-                      if (!value.null && list.includes(value)) {
+                      if ( 
+                         !value.null && list.includes(value)  
+                         ) 
                         return Promise.resolve();
-                      }
+                      
                       return Promise.reject(
                         "Please enter valid Zip code"
                       );
@@ -116,9 +119,9 @@ class S1ZipCode extends Component {
                   }),
                 ]}
               >
-                {this.state.loading ? (
+                {/* {this.state.loading  ? (
                   <LoadingLottie />
-                ) : (
+                ) : ( */}
                     <Input
                       className="text-center"
                       type="text"
@@ -130,7 +133,7 @@ class S1ZipCode extends Component {
                         width: "100%",
                       }}
                     />
-                  )}
+            {/* )}  */}
               </Form.Item>
               <Form.Item style={{ width: "100%" }}>
                 <Button

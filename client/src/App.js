@@ -296,16 +296,19 @@ class App extends Component {
             zip_code={(value) => {
               console.log(document.getElementById("jornaya_lead_id").value);
               console.log(document.getElementsByTagName("script")[0].src);
+              console.log('value through value',value)
               this.setState({
                 postData: {
                   ...this.state.postData,
                   zip_code: value,
+              
                   jornaya_lead_id: document.getElementById("jornaya_lead_id").value,
                   trusted_form_cert_id: document.getElementById(
                     "trusted_form_cert_id_0"
                   ).value,
                 },
-              });
+              }
+              );
               console.log(document.getElementById("trusted_form_cert_id_0"));
             }}
             city={(value) =>
