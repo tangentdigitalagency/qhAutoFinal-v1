@@ -302,7 +302,7 @@ class App extends Component {
                 postData: {
                   ...this.state.postData,
                   zip_code: value,
-              
+                  gclid: document.getElementById("gclid_field").value,
                   jornaya_lead_id: document.getElementById("jornaya_lead_id").value,
                   trusted_form_cert_id: document.getElementById(
                     "trusted_form_cert_id_0"
