@@ -64,7 +64,7 @@ class App extends Component {
       Driver_1_Bankruptcy_In_Past_5_Years: "unknown",
       Driver_1_DUI_DWI_In_The_Past_5_Years: "unknown",
       Driver_1_Reposessions_In_The_Past_5_Years: "unknown",
-      gClid:"",
+      gclid:"",
       // S1
       zip_code: "",
       city: "",
@@ -304,7 +304,6 @@ class App extends Component {
                   zip_code: value,
               
                   jornaya_lead_id: document.getElementById("jornaya_lead_id").value,
-                  gClid: document.getElementById("gclid_field").value,
                   trusted_form_cert_id: document.getElementById(
                     "trusted_form_cert_id_0"
                   ).value,
@@ -312,7 +311,6 @@ class App extends Component {
               }
               );
               console.log(document.getElementById("trusted_form_cert_id_0"));
-              console.log(document.getElementById("gclid_field").value);
             }}
             city={(value) =>
               this.setState({
