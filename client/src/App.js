@@ -512,20 +512,7 @@ class App extends Component {
                 </Grid>
                 <Grid item xs={12}>
                   <p className="footerText2" style={{textAlign:"center"}}>
-                    Get your free auto quote with Quotehound today and compare  <br/> <strong>real</strong> quotes online!
-                    Get your free auto quote with Quotehound <br/> today and compare <strong>real</strong> quotes online!
-                  </p>
-                </Grid>
-                <Grid item xs={12}>
-                  <p className="footerText2" style={{textAlign:"center"}}>
-                    Get your free auto quote with Quotehound today and compare  <br/> <strong>real</strong> quotes online!
-                    Get your free auto quote with Quotehound <br/> today and compare <strong>real</strong> quotes online!
-                  </p>
-                </Grid>
-                <Grid item xs={12}>
-                  <p className="footerText2" style={{textAlign:"center"}}>
-                    Get your free auto quote with Quotehound today and compare  <br/> <strong>real</strong> quotes online!
-                    Get your free auto quote with Quotehound <br/> today and compare <strong>real</strong> quotes online!
+                  Most people don’t enjoy having someone try to sell them something—that’s just human nature. But what’s even more frustrating is having someone try to sell you something when you kind of think you might need it, but you’re not sure. So, the first thing you need to do when it comes to choosing a <strong>car insurance</strong> company is figure out exactly what you need. That way, you can have much more control over the purchasing experience, because you’ll know what you are shopping for—and what you’re not interested in buying. Get your <strong>free auto quote</strong> with Quotehound today and compare <b>real quotes  </b>online!
                   </p>
                 </Grid>
           </Grid>
