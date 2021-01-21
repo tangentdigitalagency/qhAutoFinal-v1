@@ -267,7 +267,7 @@ class App extends Component {
       >
         <header className="navbar navbar-expand flex-column flex-md-row bd-navbar">
           <div className="container">
-            <img className="logo"
+            <img
               src={require("./Assets/logo.png")}
               className="m-4"
               width="200px"
@@ -505,7 +505,7 @@ class App extends Component {
         </StepWizard>
         <Grid container xs={12} style={{paddingLeft:'10vw',paddingRight:'10vw' }}>
           <Grid item md={6} xs={12} style={{display: 'flex', justifyContent: 'center'}}>
-            <img style={{width: '370px',borderRadius: '20px'}} src={require("./man.png")} alt="footer Image"/>
+            <img style={{width: '370px',borderRadius: '20px'}} src={require("./Assets/main_pic.jpg")} alt="free insurance quote"/>
           </Grid>
           <Grid item md={6} xs={12}>
                 <Grid item xs={12}>
