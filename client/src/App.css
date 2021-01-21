@@ -72,7 +72,7 @@ a {
 }
 
 
-@media (max-width: 320px) {
+@media (max-width: 650px) {
 	.main-content-inner-container {
 		height: 300px;
 	}
