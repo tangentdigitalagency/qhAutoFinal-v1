@@ -284,8 +284,9 @@ class App extends Component {
                       style={{ verticalAlign: "initial" }}
                     />
                   }
+                  href="tel:+18554664705"
                 >
-                  (855) 434-4762
+                  (855) 466-4705
                 </Button>
               </li>
             </ul>
