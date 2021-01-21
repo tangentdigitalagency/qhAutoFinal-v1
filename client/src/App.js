@@ -275,9 +275,19 @@ class App extends Component {
             />
             <ul className="nav nav-fill ">
               <li className="nav-item">
-                <p>
-                (855) 466-4705
-                </p>
+                <Button
+                  type="primary"
+                  size="large"
+                  icon={
+                    <PhoneOutlined
+                      rotate="90"
+                      style={{ verticalAlign: "initial" }}
+                    />
+                  }
+                  href="tel:(855) 466-4705"
+                >
+                  (855) 466-4705
+                </Button>
               </li>
             </ul>
           </div>
