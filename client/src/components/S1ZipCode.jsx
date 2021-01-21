@@ -9,6 +9,7 @@ import zipcodeList from "../Assets/zipCodes";
 import LoadingLottie from "./LoadingLottie";
 
 
+
 class S1ZipCode extends Component {
   state = {
     zipcodes: [],
@@ -160,6 +161,7 @@ class S1ZipCode extends Component {
               </Form.Item>
             </Form>
           </div>
+         
         </div>
       </div>
     );

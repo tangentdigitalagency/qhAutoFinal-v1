@@ -502,6 +502,35 @@ class App extends Component {
           />
           <S17Media />
         </StepWizard>
+        <Grid container xs={12} style={{paddingLeft:'10vw',paddingRight:'10vw' }}>
+          <Grid item md={6} xs={12} style={{display: 'flex', justifyContent: 'center'}}>
+            <img style={{width: '370px',borderRadius: '20px'}} src={require("./man.png")} alt="footer Image"/>
+          </Grid>
+          <Grid item md={6} xs={12}>
+                <Grid item xs={12}>
+                  <p className="footerText1" >Free Car Insurance Quotes</p>
+                </Grid>
+                <Grid item xs={12}>
+                  <p className="footerText2" style={{textAlign:"center"}}>
+                    Get your free auto quote with Quotehound today and compare  <br/> <strong>real</strong> quotes online!
+                    Get your free auto quote with Quotehound <br/> today and compare <strong>real</strong> quotes online!
+                  </p>
+                </Grid>
+                <Grid item xs={12}>
+                  <p className="footerText2" style={{textAlign:"center"}}>
+                    Get your free auto quote with Quotehound today and compare  <br/> <strong>real</strong> quotes online!
+                    Get your free auto quote with Quotehound <br/> today and compare <strong>real</strong> quotes online!
+                  </p>
+                </Grid>
+                <Grid item xs={12}>
+                  <p className="footerText2" style={{textAlign:"center"}}>
+                    Get your free auto quote with Quotehound today and compare  <br/> <strong>real</strong> quotes online!
+                    Get your free auto quote with Quotehound <br/> today and compare <strong>real</strong> quotes online!
+                  </p>
+                </Grid>
+          </Grid>
+        </Grid>
+
         <Grid
           container
           xs={12}
