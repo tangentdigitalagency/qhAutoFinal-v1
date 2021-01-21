@@ -28,52 +28,6 @@
 </script>
 
 
-<!-- Analtics tracking for form next button clicks-->
-	<script>
-		document.addEventListener('click', function (e) {
-			if (e.target.matches('button[type="submit"], button[type="submit"] *') && e.target.innerText.toLowerCase().indexOf('next') != -1) {
-				gtag('event', 'click', {
-					'event_category': 'button',
-					'event_label': 'next'
-				});
-			}
-		});
-	</script>
-
-<!-- Analtics tracking for button clicks-->
-	<script>
-		window.addEventListener('load', function () {
-			var len = document.querySelectorAll('.btn.btn-outline-primary').length;
-			for (i = 0; i < len; i++) {
-				document.querySelectorAll('.btn.btn-outline-primary')[i].addEventListener('click', function () {
-					gtag('event', 'click', {
-						'event_category': 'button',
-						'event_label': this.innerText
-					});
-				})
-			}
-		})
-
-	</script>
-
-<!-- Analtics tracking for success message (final)-->
-	<script>
-		window.addEventListener('load', function () {
-			var set = setInterval(function () {
-				if (document.querySelector('.center')) {
-					if (document.querySelector('.center').innerText.includes("You Are On Your Way To Saving!")) {
-						gtag('event', 'submit', {
-							'event_category': 'form',
-							'event_label': 'You Are On Your Way To Saving'
-						});
-						clearInterval(set);
-					}
-				}
-			}, 1000)
-		})
-
-	</script>
-
 
 
 
