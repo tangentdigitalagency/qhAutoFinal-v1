@@ -76,6 +76,9 @@ a {
 	.main-content-inner-container {
 		height: 300px;
 	}
+	.m-4 {
+		width: 100px;
+	}
 }
 
 /* 

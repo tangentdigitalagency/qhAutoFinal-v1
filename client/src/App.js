@@ -267,7 +267,7 @@ class App extends Component {
       >
         <header className="navbar navbar-expand flex-column flex-md-row bd-navbar">
           <div className="container">
-            <img
+            <img className="logo"
               src={require("./Assets/logo.png")}
               className="m-4"
               width="200px"
