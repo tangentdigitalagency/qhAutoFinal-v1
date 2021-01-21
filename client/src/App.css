@@ -81,9 +81,11 @@ a {
 		padding-left: -50px;
 
 	}
-	.container{ 
+	
+	Button {
+		width: auto;
+		overflow:hidden;
 		padding-left: -100px;
-		display:flex;
 	}
 }
 
