@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { Input, Button, message, Form } from "antd";
+import { Input, Button, message, Form, Progress } from "antd";
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 import ZipCodeData from "../Assets/zipcode-data.json";
 import "./S1ZipCode.css";
@@ -88,14 +88,13 @@ class S1ZipCode extends Component {
     const list = this.state.zipcodes;
     return (
       <div className="container p-0">
-        <h1 className="text-center main-heading">
+          <h1 className="text-center main-heading">
           Start Saving With Quotehound
         </h1>
-        {/* <ProgressBar animated now={1} /> */}
         <div className="main-content-inner-container mb-5">
           <div className="right-number">1/16</div>
           <div className="text-center box-width">
-            <i className="fa fa-map-marker" style={{ fontSize: "36px" }}></i>
+                        <i className="fa fa-map-marker" style={{ fontSize: "36px" }}></i>
             <br />
             <h1 className="heading">Enter Your Zip Code</h1>
             <Form name="customized_form_controls" onFinish={this.onFinish}>

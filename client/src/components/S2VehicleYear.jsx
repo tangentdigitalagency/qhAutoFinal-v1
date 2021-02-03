@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import CommonComponents from './CommonComponents';
 import "./S2VehicleYear.css";
 import carQuery from "../Assets/carQuery.json";
-import { Select } from "antd";
+import { Select, Progress } from "antd";
 import carYears from '../Assets/carYears'
 import axios from 'axios'
 // import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -15,7 +15,7 @@ class S2VehicleYear extends Component {
 		stateName: "",
 	};
 	UNSAFE_componentWillMount = () => {
-		/*		axios.get('/getyears')
+				axios.get('/getyears')
 					.then(res => {
 						this.setState({
 							years: {
@@ -24,7 +24,7 @@ class S2VehicleYear extends Component {
 							},
 						});
 					})
-					.catch(err => console.log(err))*/
+					.catch(err => console.log(err))
 		this.setState({
 			years: {
 				minYear: Math.min.apply(null, carYears.list),
@@ -55,6 +55,7 @@ class S2VehicleYear extends Component {
 			);
 		}
 		return arr;
+
 	};
 
 	createVehicleYearSelect = () => {
@@ -102,6 +103,7 @@ class S2VehicleYear extends Component {
 						<br />
 						<br />
 						<div className="text-center box-width">
+						<Progress percent={12} status="active" />
 							<br></br>
 							<h1 className="heading">Vehicle Year</h1>
 							<div className="row">{this.state.years.length !== 0 && this.createVehicleYearBoxes()}</div>

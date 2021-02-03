@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CommonComponents from './CommonComponents';
+import { Progress } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 class S6AnnualMileage extends Component {
 	state = {};
@@ -12,11 +13,12 @@ class S6AnnualMileage extends Component {
 	render() {
 		return (
 			<div className="container p-0 main-content-container3 mb-5">
-				{/* <ProgressBar animated now={37} /> */}
+				<Progress percent={37} status="active" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
+					
 				/>
 
 				<br />
@@ -25,6 +27,8 @@ class S6AnnualMileage extends Component {
 					style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
 				>
 					<div className="text-center">
+
+
 						<h1 className="heading">Annual Mileage</h1>
 						<div className="row">
 							<div className="text-center p-2 col-md-3">

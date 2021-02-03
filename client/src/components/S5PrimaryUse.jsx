@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./S2VehicleYear.css";
 import CommonComponents from './CommonComponents';
+import {Progress } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 class S5PrimaryUse extends Component {
 	state = {};
@@ -20,6 +21,8 @@ class S5PrimaryUse extends Component {
 				/>
 
 				<div className="text-center box-width ">
+				<Progress percent={25} status="active" />
+
 					<h1 className="heading">
 						Primary Use of your <span style={{ textTransform: "capitalize" }}>{this.props.name}</span>
 					</h1>

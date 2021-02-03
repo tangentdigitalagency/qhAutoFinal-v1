@@ -3,6 +3,7 @@ import carQuery from "../Assets/carQuery.json";
 import axios from 'axios'
 import CommonComponents from './CommonComponents';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
+import {Progress } from 'antd';
 class S4VehicleModel extends Component {
 	constructor(props) {
 		super(props);
@@ -79,7 +80,9 @@ class S4VehicleModel extends Component {
 					className="container pt-0 main-content-container4 pb-5 "
 					style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
 				>
+
 					<div className="text-center vehicle-model-padding">
+					<Progress percent={25} status="active" />
 						<h1 className="heading">Vehicle Model</h1>
 						<div className="row">{this.state.models.length !== 0 && this.createVehicleNameBoxes()}</div>
 					</div>

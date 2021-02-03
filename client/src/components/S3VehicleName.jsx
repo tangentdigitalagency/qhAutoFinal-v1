@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import carQuery from "../Assets/carQuery.json";
-import { Select } from "antd";
+import { Select, Progress } from "antd";
 import axios from 'axios'
 import CommonComponents from './CommonComponents';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -12,7 +12,7 @@ class S3VehicleName extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			names: "",
+			names: ""
 		};
 	}
 
@@ -88,12 +88,12 @@ class S3VehicleName extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
-
 				<div
 					className="container pt-0 main-content-container4 pb-5 "
 					style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
 				>
 					<div className="text-center vehicle-model-padding">
+					<Progress percent={18} status="active" />
 						<h1 className="heading">Vehicle Make</h1>
 						<div className="row">{this.state.names.length !== 0 && this.createVehicleNameBoxes()}</div>
 						<br />
