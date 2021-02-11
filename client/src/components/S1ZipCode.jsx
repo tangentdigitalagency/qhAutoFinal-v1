@@ -7,7 +7,7 @@ import { data } from "jquery";
 import axios from "axios";
 import zipcodeList from "../Assets/zipCodes";
 import LoadingLottie from "./LoadingLottie";
-
+import {Link,withRouter} from "react-router-dom"; 
 
 
 class S1ZipCode extends Component {
@@ -35,7 +35,8 @@ class S1ZipCode extends Component {
         this.props.city(this.state.getZip.city);
         this.props.state(this.state.getZip.state_id);
         this.props.active_license(this.state.getZip.state_id);
-        this.props.nextStep();
+        this.props.history.push("/step2")
+        // this.props.nextStep();
       // })
       // .catch((err) => message.error("Please Enter A Valid Zipcode!"));
   };
@@ -167,7 +168,7 @@ class S1ZipCode extends Component {
   }
 }
 
-export default S1ZipCode;
+export default withRouter(S1ZipCode);
 
 const ZipCodeInput = ({ value = {}, onChange }) => {
   const [number] = useState();

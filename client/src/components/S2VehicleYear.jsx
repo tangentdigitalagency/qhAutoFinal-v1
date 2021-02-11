@@ -5,6 +5,9 @@ import carQuery from "../Assets/carQuery.json";
 import { Select, Progress } from "antd";
 import carYears from '../Assets/carYears'
 import axios from 'axios'
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 
 const { Option } = Select;
@@ -79,9 +82,11 @@ class S2VehicleYear extends Component {
 	};
 
 	moveNext = (e) => {
-		this.props.nextStep();
+		// this.props.nextStep();
 		this.props.vehicle_year(Number(e.target.value));
 		this.props.yearForVehicleName(Number(e.target.value));
+		this.props.history.push("/step3")
+
 	};
 	render() {
 		return (
@@ -99,6 +104,11 @@ class S2VehicleYear extends Component {
 							totalSteps={this.props.totalSteps}
 							previousStep={this.props.previousStep}
 						/>
+					<Link to="/step1">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+                        </Link>
 
 						<br />
 						<br />
@@ -129,4 +139,4 @@ class S2VehicleYear extends Component {
 	}
 }
 
-export default S2VehicleYear;
+export default withRouter(S2VehicleYear);

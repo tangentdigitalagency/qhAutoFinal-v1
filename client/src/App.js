@@ -27,6 +27,12 @@ import S15YourName from "./components/S15YourName";
 import S16YourAddress from "./components/S16YourAddress";
 import S17Media from "./components/S17Media";
 import { Grid, Typography } from "@material-ui/core";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 class App extends Component {
   state = {
     postData: {
@@ -304,7 +310,10 @@ class App extends Component {
             </ul>
           </div>
         </header>
-        <StepWizard initialStep={1}>
+        {/* <StepWizard initialStep={1}> */}
+        <Router>
+          <Switch>
+            <Route exact path="/step1">
           <S1ZipCode
             zipCodeCity={this.zipCodeCity}
             zip_code={(value) => {
@@ -344,6 +353,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step2">
           <S2VehicleYear
             yearForVehicleName={this.yearForVehicleName}
             zipCodeCity={this.state.zipCodeCity}
@@ -353,6 +364,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step3">
           <S3VehicleName
             year={this.state.year}
             nameForVehicalModel={this.nameForVehicalModel}
@@ -362,6 +375,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step4">
           <S4VehicleModel
             searchModel={{ year: this.state.year, make: this.state.name }}
             vehicle_model={(value) =>
@@ -370,6 +385,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step5">
           <S5PrimaryUse
             name={this.state.name}
             vehicle_primary_use={(value) =>
@@ -381,6 +398,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step6">
           <S6AnnualMileage
             annual_mileage={(value) =>
               this.setState({
@@ -391,6 +410,8 @@ class App extends Component {
               })
             }
           />
+           </Route>
+           <Route path="/step7">
           <S7CoverageLevel
             desired_coverage_level={(value) =>
               this.setState({
@@ -401,6 +422,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step8">
           <S8Ownership
             name={this.state.name}
             maintainTable={this.maintainTable}
@@ -414,17 +437,22 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route exact path="/step9">
           <S9AddAnother
             table={this.state.table}
             deleteTableItem={this.deleteTableItem}
             postData2={this.state.postData2}
             deleteVehicleForPostData2={this.deleteVehicleForPostData2}
           />
+          </Route>
+          <Route path="/step10">
           <S10CurrentAutoInsurance
             currentCompanyForPostData2={this.currentCompanyForPostData2}
             continuousCoverageForPostData2={this.continuousCoverageForPostData2}
           />
-
+          </Route>
+          <Route path="/step11">
           <S11DrivingHistory
             sr22ForPostData2={this.sr22ForPostData2}
             Driver_1_Filing_Required={(value) =>
@@ -436,6 +464,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step12">
           <S12DriverData
             homeOwnershipForPostData2={this.homeOwnershipForPostData2}
             gender={(value) =>
@@ -452,6 +482,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step13">
           <S13Education
             education_level={(value) =>
               this.setState({
@@ -467,6 +499,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step14">
           <S14DateOfBirth
             dob={(value) =>
               this.setState({
@@ -474,6 +508,8 @@ class App extends Component {
               })
             }
           />
+           </Route>
+           <Route path="/step15">
           <S15YourName
             username={this.username}
             first_name={(value) =>
@@ -490,6 +526,8 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step16">
           <S16YourAddress
             username={this.state.username}
             postData={this.state.postData}
@@ -513,8 +551,13 @@ class App extends Component {
               })
             }
           />
+          </Route>
+          <Route path="/step17">
           <S17Media />
-        </StepWizard>
+          </Route>
+          </Switch>
+          </Router>
+        {/* </StepWizard> */}
         <Grid container xs={12} style={{paddingLeft:'10vw',paddingRight:'10vw' }}>
           <Grid item md={6} xs={12} style={{display: 'flex', justifyContent: 'center'}}>
             <img style={{width: '370px',borderRadius: '20px'}} src={require("./man.png")} alt="Free Insurance Quote"/>

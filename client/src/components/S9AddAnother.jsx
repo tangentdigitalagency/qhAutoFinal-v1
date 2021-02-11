@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import CommonComponents from './CommonComponents';
+
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 class S9AddAnother extends Component {
 	state = {
@@ -7,9 +11,9 @@ class S9AddAnother extends Component {
 		postData2: [],
 	};
 
-	UNSAFE_componentWillReceiveProps = (newProps) => {
-		this.setState({ table: newProps.table });
-		this.setState({ postData2: newProps.postData2 });
+	componentDidMount = () => {
+		this.setState({ table: this.props.table });
+		this.setState({ postData2: this.props.postData2 });
 	};
 
 	updateTableData = (index) => {
@@ -19,6 +23,9 @@ class S9AddAnother extends Component {
 		tempArray.vehicles = [...tempArray.vehicles.slice(0, index), ...tempArray.vehicles.slice(index + 1)];
 		this.props.deleteVehicleForPostData2(tempArray);
 	};
+	moveNext=()=>{
+		this.props.history.push("/step10")
+	}
 
 	render() {
 		return (
@@ -29,6 +36,13 @@ class S9AddAnother extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
+
+  <Link to="/step8">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+                        </Link>
+
 
 				<div
 					className="container pt-0 main-content-container4 pb-5 "
@@ -44,7 +58,8 @@ class S9AddAnother extends Component {
 								<button
 									className="btn btn-outline-primary"
 									style={{ width: "150px", height: "70px" }}
-									onClick={() => this.props.goToStep(2)}
+									onClick={() => this.props.history.push("/step2")
+								}
 								>
 									Yes
 								</button>
@@ -53,7 +68,8 @@ class S9AddAnother extends Component {
 								<button
 									className="btn btn-outline-primary"
 									style={{ width: "150px", height: "70px" }}
-									onClick={this.props.nextStep}
+									onClick={this.moveNext}
+								
 								>
 									No
 								</button>
@@ -88,4 +104,4 @@ class S9AddAnother extends Component {
 	}
 }
 
-export default S9AddAnother;
+export default withRouter(S9AddAnother);

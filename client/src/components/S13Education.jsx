@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Form, Select, Button } from "antd";
 import CommonComponents from './CommonComponents';
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 const { Option } = Select;
 
@@ -9,9 +12,11 @@ class S10CurrentAutoInsurance extends Component {
 
 	onFinish = (values) => {
 		// console.log("Success:", values);
-		this.props.nextStep();
+		// this.props.nextStep();
+	
 		this.props.education_level(values.educationLevel);
 		this.props.credit_score(values.creditScore);
+		this.props.history.push("/step14")
 	};
 
 	onFinishFailed = (errorInfo) => {
@@ -27,7 +32,11 @@ class S10CurrentAutoInsurance extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
-
+ 				 <Link to="/step12">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+                        </Link>
 
 				<div className="box-width">
 					<h1 className="text-center heading">Education & Credit Score</h1>
@@ -109,4 +118,4 @@ class S10CurrentAutoInsurance extends Component {
 	}
 }
 
-export default S10CurrentAutoInsurance;
+export default withRouter(S10CurrentAutoInsurance);

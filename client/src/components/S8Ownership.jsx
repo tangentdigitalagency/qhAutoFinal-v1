@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import CommonComponents from './CommonComponents';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 class S8Ownership extends Component {
 	constructor(props) {
 		super(props);
@@ -9,10 +12,13 @@ class S8Ownership extends Component {
 	}
 
 	moveNext = (e) => {
-		this.props.nextStep();
+		// this.props.nextStep();
+	
 		this.props.vehicle_ownership(e.target.lastChild.data);
 		this.props.maintainTable();
 		this.props.vehicleForPostData2(e.target.lastChild.data);
+		this.props.history.push("/step9")
+
 	};
 
 	render() {
@@ -24,6 +30,12 @@ class S8Ownership extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
+
+  <Link to="/step7">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+                        </Link>
 
 				<br />
 				<div
@@ -70,4 +82,4 @@ class S8Ownership extends Component {
 	}
 }
 
-export default S8Ownership;
+export default withRouter(S8Ownership);

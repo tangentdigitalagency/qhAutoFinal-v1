@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Input, Button, Form } from "antd";
 import CommonComponents from './CommonComponents';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+
 class S15YourName extends Component {
 	state = {};
 
@@ -10,7 +13,8 @@ class S15YourName extends Component {
 		this.props.username(values.firstName);
 		this.props.first_name(values.firstName);
 		this.props.last_name(values.lastName);
-		this.props.nextStep();
+		// this.props.nextStep();
+		this.props.history.push("/step16")
 	};
 
 	onFinishFailed = (errorInfo) => {
@@ -27,6 +31,12 @@ class S15YourName extends Component {
 					previousStep={this.props.previousStep}
 				/>
 
+
+  <Link to="/step14">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+                        </Link>
 
 				<div className="box-width">
 					<h1 className="text-center heading">What Is Your Name?</h1>
@@ -82,4 +92,4 @@ class S15YourName extends Component {
 	}
 }
 
-export default S15YourName;
+export default withRouter(S15YourName);

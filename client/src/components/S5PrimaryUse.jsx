@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import "./S2VehicleYear.css";
 import CommonComponents from './CommonComponents';
 import {Progress } from 'antd';
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 class S5PrimaryUse extends Component {
 	state = {};
 
 	moveNext = (e) => {
-		this.props.nextStep();
+		// this.props.nextStep();
+		this.props.history.push("/step6")
 		this.props.vehicle_primary_use(e.target.lastChild.data);
 	};
 	render() {
@@ -19,6 +23,11 @@ class S5PrimaryUse extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
+				  <Link to="/step4">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+						</Link>
 
 				<div className="text-center box-width ">
 				<Progress percent={25} status="active" />
@@ -64,4 +73,4 @@ class S5PrimaryUse extends Component {
 	}
 }
 
-export default S5PrimaryUse;
+export default withRouter(S5PrimaryUse);

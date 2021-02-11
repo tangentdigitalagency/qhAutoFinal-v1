@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import CommonComponents from './CommonComponents';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+
 class S7CoverageLevel extends Component {
 	state = {};
 
 	moveNext = (e) => {
 
 		this.props.desired_coverage_level(e.target.lastChild.data);
-		this.props.nextStep();
+		// this.props.nextStep();
+		this.props.history.push("/step8")
+
 	};
 
 	render() {
@@ -19,6 +25,13 @@ class S7CoverageLevel extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
+
+  					<Link to="/step6">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+                        </Link>
+
 
 				<br />
 				<div
@@ -76,4 +89,4 @@ class S7CoverageLevel extends Component {
 	}
 }
 
-export default S7CoverageLevel;
+export default withRouter(S7CoverageLevel);

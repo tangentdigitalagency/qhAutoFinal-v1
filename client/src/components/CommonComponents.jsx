@@ -7,11 +7,11 @@ class CommonComponents extends Component {
         return (
             <div className='row'>
                 <div className="flex-row w-100 d-inline-flex justify-content-between">
-                    <div className="p-2">
+                    {/* <div className="p-2">
                         <Button type="primary" shape="circle" onClick={this.props.previousStep}   >
                             <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
                         </Button>
-                    </div>
+                    </div> */}
                     {/* <div className="p-2 number" >
                         {this.props.currentStep}/{this.props.totalSteps}
                     </div> */}

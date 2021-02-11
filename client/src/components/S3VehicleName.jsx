@@ -4,7 +4,9 @@ import { Select, Progress } from "antd";
 import axios from 'axios'
 import CommonComponents from './CommonComponents';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
-
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 const { Option } = Select;
 
 
@@ -16,7 +18,7 @@ class S3VehicleName extends Component {
 		};
 	}
 
-	UNSAFE_componentWillReceiveProps = (newProps) => {
+	componentDidMount = () => {
 		/*var namesArray = [];
 		carQuery.map(
 			(data) =>
@@ -25,10 +27,12 @@ class S3VehicleName extends Component {
 				namesArray.push(data.model_make_id)
 		);
 		this.setState({ names: namesArray });*/
-		if (newProps.year > 0) {
-			axios.post('https://qhautoformreact.herokuapp.com/getmake', { year: newProps.year })
+		console.log(this.props.year)
+		if (this.props.year > 0) {
+			axios.post('https://qhautoformreact.herokuapp.com/getmake', { year: this.props.year })
 				.then(res => {
 					this.setState({ names: res.data });
+					console.log(res.data)
 				})
 				.catch(err => console.log(err))
 		}
@@ -75,9 +79,10 @@ class S3VehicleName extends Component {
 	};
 
 	moveNext = (e) => {
-		this.props.nextStep();
+		// this.props.nextStep();
 		this.props.vehicle_make(e.target.value);
 		this.props.nameForVehicalModel(e.target.value);
+		this.props.history.push("/step4")
 	};
 	render() {
 		return (
@@ -88,6 +93,12 @@ class S3VehicleName extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
+
+  <Link to="/step2">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+                        </Link>
 				<div
 					className="container pt-0 main-content-container4 pb-5 "
 					style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -117,4 +128,4 @@ class S3VehicleName extends Component {
 	}
 }
 
-export default S3VehicleName;
+export default withRouter(S3VehicleName);

@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Form, Button, DatePicker, Input } from "antd";
 import CommonComponents from './CommonComponents';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+
 
 class S14DateOfBirth extends Component {
 	state = {
@@ -40,7 +43,9 @@ class S14DateOfBirth extends Component {
 		// }
 		// const requiredFormat = date[1] + "/" + date[2] + "/" + date[3];
 		this.props.dob(this.state.dateValue);
-		this.props.nextStep();
+		// this.props.nextStep();
+		this.props.history.push("/step15")
+
 	};
 
 	onFinishFailed = (errorInfo) => {
@@ -65,6 +70,12 @@ class S14DateOfBirth extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
+
+<Link to="/step13">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+                        </Link>
 
 
 				<div className="box-width">
@@ -109,4 +120,4 @@ class S14DateOfBirth extends Component {
 	}
 }
 
-export default S14DateOfBirth;
+export default withRouter(S14DateOfBirth);

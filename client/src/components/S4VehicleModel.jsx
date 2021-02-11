@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import carQuery from "../Assets/carQuery.json";
 import axios from 'axios'
 import CommonComponents from './CommonComponents';
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 import {Progress } from 'antd';
 class S4VehicleModel extends Component {
@@ -24,8 +27,8 @@ class S4VehicleModel extends Component {
 		this.setState({ models: modelsArray });
 	};*/
 
-	UNSAFE_componentWillReceiveProps = (newProps) => {
-		axios.post('https://qhautoformreact.herokuapp.com/getmodel', { year: newProps.searchModel.year, make: newProps.searchModel.make })
+	componentDidMount = () => {
+		axios.post('https://qhautoformreact.herokuapp.com/getmodel', { year: this.props.searchModel.year, make: this.props.searchModel.make })
 			.then(res => this.setState({ models: res.data }))
 			.catch(err => console.log(err))
 	};
@@ -63,7 +66,8 @@ class S4VehicleModel extends Component {
 	};
 
 	moveNext = (e) => {
-		this.props.nextStep();
+		// this.props.nextStep();
+		this.props.history.push("/step5")
 		this.props.vehicle_model(e.target.value);
 	};
 	render() {
@@ -75,6 +79,11 @@ class S4VehicleModel extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
+					  <Link to="/step3">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+						</Link>
 
 				<div
 					className="container pt-0 main-content-container4 pb-5 "
@@ -92,7 +101,7 @@ class S4VehicleModel extends Component {
 	}
 }
 
-export default S4VehicleModel;
+export default withRouter(S4VehicleModel);
 
 // class S4VehicleModel extends Component {
 // 	state = {

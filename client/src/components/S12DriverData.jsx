@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import { Form, Select, Button, Checkbox } from "antd";
 import CommonComponents from './CommonComponents';
+import {Link,withRouter} from "react-router-dom"; 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 const { Option } = Select;
 
@@ -11,7 +14,9 @@ class S12DriverData extends Component {
 	};
 
 	onFinish = (values) => {
-		this.props.nextStep();
+		// this.props.nextStep();
+
+this.props.history.push("/step13")
 	};
 
 	onFinishFailed = (errorInfo) => {
@@ -27,6 +32,12 @@ class S12DriverData extends Component {
 					totalSteps={this.props.totalSteps}
 					previousStep={this.props.previousStep}
 				/>
+
+		<Link to="/step11">
+                        <Button type="primary" shape="circle"    >
+                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+                        </Button>
+                        </Link>
 
 				<br />
 				<div
@@ -132,4 +143,4 @@ class S12DriverData extends Component {
 	}
 }
 
-export default S12DriverData;
+export default withRouter(S12DriverData);
