@@ -552,7 +552,7 @@ class App extends Component {
             }
           />
           </Route>
-          <Route path="/step17">
+          <Route path="/thank-you">
           <S17Media />
           </Route>
           </Switch>
