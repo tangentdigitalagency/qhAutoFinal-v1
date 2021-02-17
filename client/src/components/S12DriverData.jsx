@@ -26,7 +26,7 @@ this.props.history.push("/step13")
 	render() {
 		return (
 			<div className="container p-0 main-content-container3 mb-5">
-				<Progress percent={75} status="active" showInfo={false} className="pbar" />
+				<Progress percent={75} status="active" showInfo={true} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}

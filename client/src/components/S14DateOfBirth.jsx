@@ -64,7 +64,7 @@ class S14DateOfBirth extends Component {
 	render() {
 		return (
 			<div className="container pt-0 main-content-container mb-5">
-				<Progress percent={87} status="active" showInfo={false} className="pbar" />
+				<Progress percent={87} status="active" showInfo={true} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}

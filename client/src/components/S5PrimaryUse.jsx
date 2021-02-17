@@ -17,7 +17,7 @@ class S5PrimaryUse extends Component {
 	render() {
 		return (
 			<div className="container pt-0 main-content-container2 mb-5">
-				<Progress percent={31} status="active" showInfo={false} className="pbar" />
+				<Progress percent={31} status="active" showInfo={true} className="pbar" />
 
 				{/* <ProgressBar animated now={31} /> */}
 				<CommonComponents

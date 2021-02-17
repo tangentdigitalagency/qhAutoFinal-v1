@@ -73,7 +73,7 @@ class S4VehicleModel extends Component {
 	render() {
 		return (
 			<div className="container p-0 content-container main-content-container3 mb-5">
-				<Progress percent={25} status="active" showInfo={false} className="pbar" />
+				<Progress percent={25} status="active" showInfo={true} className="pbar" />
 
 				{/* <ProgressBar animated now={25} /> */}
 				<CommonComponents

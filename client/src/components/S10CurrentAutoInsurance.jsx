@@ -27,7 +27,7 @@ class S10CurrentAutoInsurance extends Component {
 	render() {
 		return (
 			<div className="container pt-0 main-content-container mb-5">
-				<Progress percent={62} status="active" showInfo={false} className="pbar" />
+				<Progress percent={62} status="active" showInfo={true} className="pbar" />
 
 				{/* <ProgressBar animated now={62} /> */}
 				<CommonComponents

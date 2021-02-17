@@ -19,7 +19,7 @@ class S7CoverageLevel extends Component {
 	render() {
 		return (
 			<div className="container p-0 main-content-container4 mb-5">
-				<Progress percent={43} status="active" showInfo={false} className="pbar" />
+				<Progress percent={43} status="active" showInfo={true} className="pbar" />
 
 				{/* <ProgressBar animated now={43} /> */}
 				<CommonComponents

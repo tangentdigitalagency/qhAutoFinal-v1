@@ -88,7 +88,7 @@ class S3VehicleName extends Component {
 	render() {
 		return (
 			<div className="container pt-0 content-container main-content-container3 mb-5">
-				<Progress percent={18} status="active" showInfo={false} className="pbar" />
+				<Progress percent={18} status="active" showInfo={true} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}

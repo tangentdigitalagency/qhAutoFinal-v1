@@ -21,7 +21,7 @@ class S11DrivingHistory extends Component {
 	render() {
 		return (
 			<div className="container p-0 main-content-container3 mb-5">
-				<Progress percent={68} status="active" showInfo={false} className="pbar" />
+				<Progress percent={68} status="active" showInfo={true} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}
