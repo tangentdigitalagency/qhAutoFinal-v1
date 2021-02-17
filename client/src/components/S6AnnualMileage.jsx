@@ -19,7 +19,7 @@ this.props.history.push("/step7")
 	render() {
 		return (
 			<div className="container p-0 main-content-container3 mb-5">
-				<Progress percent={37} status="active" />
+				<Progress percent={37} status="active" showInfo={false} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}
@@ -38,8 +38,6 @@ this.props.history.push("/step7")
 					style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
 				>
 					<div className="text-center">
-
-
 						<h1 className="heading">Annual Mileage</h1>
 						<div className="row">
 							<div className="text-center p-2 col-md-3">

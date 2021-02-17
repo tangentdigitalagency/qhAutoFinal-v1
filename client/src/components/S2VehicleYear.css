@@ -69,6 +69,12 @@
 	font-size: medium;
 }
 
+.pbar {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 @media (max-width: 767px) {
 	.box-width {
 		width: 80%;

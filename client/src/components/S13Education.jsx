@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Select, Button } from "antd";
+import { Form, Select, Button, Progress } from "antd";
 import CommonComponents from './CommonComponents';
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
@@ -26,7 +26,7 @@ class S10CurrentAutoInsurance extends Component {
 	render() {
 		return (
 			<div className="container pt-0 main-content-container mb-5">
-				{/* <ProgressBar animated now={81} /> */}
+				<Progress percent={81} status="active" showInfo={false} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}

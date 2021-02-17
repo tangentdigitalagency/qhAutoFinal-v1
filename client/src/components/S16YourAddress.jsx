@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Axios from "axios";
-import { Input, Form, Button } from "antd";
+import { Input, Form, Button, Progress } from "antd";
 import XMLParser from "react-xml-parser";
 import "./S2VehicleYear.css";
 import ProgressLottie from "./ProgressLottie";
@@ -114,7 +114,7 @@ class S15YourName extends Component {
     const { response, loading } = this.state;
     return (
       <div className="container pt-0 content-container main-content-container3 mb-5">
-        {/* <ProgressBar animated now={50} /> */}
+				<Progress percent={100} status="active" showInfo={false} className="pbar" />
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}

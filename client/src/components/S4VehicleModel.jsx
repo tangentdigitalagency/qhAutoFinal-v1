@@ -4,7 +4,7 @@ import axios from 'axios'
 import CommonComponents from './CommonComponents';
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button,  } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 import {Progress } from 'antd';
 class S4VehicleModel extends Component {
@@ -73,6 +73,8 @@ class S4VehicleModel extends Component {
 	render() {
 		return (
 			<div className="container p-0 content-container main-content-container3 mb-5">
+				<Progress percent={25} status="active" showInfo={false} className="pbar" />
+
 				{/* <ProgressBar animated now={25} /> */}
 				<CommonComponents
 					currentStep={this.props.currentStep}
@@ -91,7 +93,6 @@ class S4VehicleModel extends Component {
 				>
 
 					<div className="text-center vehicle-model-padding">
-					<Progress percent={25} status="active" />
 						<h1 className="heading">Vehicle Model</h1>
 						<div className="row">{this.state.models.length !== 0 && this.createVehicleNameBoxes()}</div>
 					</div>

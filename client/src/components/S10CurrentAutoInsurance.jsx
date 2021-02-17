@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { } from "antd";
+import { Progress} from "antd";
 import { Form, Select, Button } from "antd";
 import CommonComponents from './CommonComponents';
 import {Link,withRouter} from "react-router-dom"; 
@@ -27,6 +27,8 @@ class S10CurrentAutoInsurance extends Component {
 	render() {
 		return (
 			<div className="container pt-0 main-content-container mb-5">
+				<Progress percent={62} status="active" showInfo={false} className="pbar" />
+
 				{/* <ProgressBar animated now={62} /> */}
 				<CommonComponents
 					currentStep={this.props.currentStep}
@@ -281,7 +283,7 @@ class S10CurrentAutoInsurance extends Component {
 
 						<Form.Item style={{ width: "100%" }}>
 							<Button type="primary" htmlType="submit" style={{ width: "100%" }} size={"large"}>
-								<h4 style={{ display: "inline", color: "white", fontWeight: "400" }}>Continue</h4>
+								<h4 style={{ display: "inline", color: "white", fontFamily: "400" }}>Continue</h4>
 								&nbsp;&nbsp;&nbsp;
 								<i className="fa fa-arrow-right" style={{ fontSize: "24px" }}></i>
 							</Button>

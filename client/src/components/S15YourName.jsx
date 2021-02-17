@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, Button, Form } from "antd";
+import { Input, Button, Form, Progress } from "antd";
 import CommonComponents from './CommonComponents';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 import {Link,withRouter} from "react-router-dom"; 
@@ -24,7 +24,7 @@ class S15YourName extends Component {
 	render() {
 		return (
 			<div className="container pt-0 main-content-container mb-5">
-				{/* <ProgressBar animated now={93} /> */}
+				<Progress percent={93} status="active" showInfo={false} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}

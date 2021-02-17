@@ -17,6 +17,8 @@ class S5PrimaryUse extends Component {
 	render() {
 		return (
 			<div className="container pt-0 main-content-container2 mb-5">
+				<Progress percent={31} status="active" showInfo={false} className="pbar" />
+
 				{/* <ProgressBar animated now={31} /> */}
 				<CommonComponents
 					currentStep={this.props.currentStep}
@@ -30,7 +32,6 @@ class S5PrimaryUse extends Component {
 						</Link>
 
 				<div className="text-center box-width ">
-				<Progress percent={25} status="active" />
 
 					<h1 className="heading">
 						Primary Use of your <span style={{ textTransform: "capitalize" }}>{this.props.name}</span>

@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from "react";
 import CommonComponents from './CommonComponents';
 import "./S2VehicleYear.css";
+// @ts-ignore
 import carQuery from "../Assets/carQuery.json";
 import { Select, Progress } from "antd";
 import carYears from '../Assets/carYears'
 import axios from 'axios'
-import {Link,withRouter} from "react-router-dom"; 
+import { Link, withRouter } from "react-router-dom";
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -18,16 +19,16 @@ class S2VehicleYear extends Component {
 		stateName: "",
 	};
 	UNSAFE_componentWillMount = () => {
-				axios.get('/getyears')
-					.then(res => {
-						this.setState({
-							years: {
-								minYear: Math.min.apply(null, res.data),
-								maxYear: Math.max.apply(null, res.data),
-							},
-						});
-					})
-					.catch(err => console.log(err))
+		axios.get('/getyears')
+			.then(res => {
+				this.setState({
+					years: {
+						minYear: Math.min.apply(null, res.data),
+						maxYear: Math.max.apply(null, res.data),
+					},
+				});
+			})
+			.catch(err => console.log(err))
 		this.setState({
 			years: {
 				minYear: Math.min.apply(null, carYears.list),
@@ -43,6 +44,7 @@ class S2VehicleYear extends Component {
 	createVehicleYearBoxes = () => {
 		const arr = [];
 
+		// @ts-ignore
 		for (var i = this.state.years.maxYear; i > this.state.years.maxYear - 24; i--) {
 			arr.push(
 				<div className="col-3 p-2" key={i}>
@@ -64,6 +66,7 @@ class S2VehicleYear extends Component {
 	createVehicleYearSelect = () => {
 		const arr = [];
 
+		// @ts-ignore
 		for (var i = this.state.years.maxYear - 24; i >= this.state.years.minYear; i--) {
 			arr.push(
 				<Option className="p-0" key={i} value={i}>
@@ -92,11 +95,19 @@ class S2VehicleYear extends Component {
 		return (
 			<Fragment>
 				<h3 className="text-center mt-2 mb-2 main-heading">
-					{this.props.zipCodeCity} <span style={{ fontWeight: "200" }}> Drivers Can Save Up to </span>
-					$500<span style={{ fontWeight: "200" }}>/Year!</span>
+					{this.props.zipCodeCity} <span style={{
+						// @ts-ignore
+						fontWeight: "200"
+					}}> Drivers Can Save Up to </span>
+					$500<span style={{
+						// @ts-ignore
+						fontWeight: "200"
+					}}>/Year!</span>
 				</h3>
 
 				<div className="container pt-0 main-content-container mb-5">
+					<Progress percent={12} status="active" showInfo={false} className="pbar" />
+
 					{/* <ProgressBar animated now={12} /> */}
 					<div>
 						<CommonComponents
@@ -104,16 +115,15 @@ class S2VehicleYear extends Component {
 							totalSteps={this.props.totalSteps}
 							previousStep={this.props.previousStep}
 						/>
-					<Link to="/step1">
-                        <Button type="primary" shape="circle"    >
-                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
-                        </Button>
-                        </Link>
+						<Link to="/">
+							<Button type="primary" shape="circle"    >
+								<ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+							</Button>
+						</Link>
 
 						<br />
 						<br />
 						<div className="text-center box-width">
-						<Progress percent={12} status="active" />
 							<br></br>
 							<h1 className="heading">Vehicle Year</h1>
 							<div className="row">{this.state.years.length !== 0 && this.createVehicleYearBoxes()}</div>

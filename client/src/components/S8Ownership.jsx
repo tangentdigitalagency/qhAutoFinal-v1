@@ -4,7 +4,7 @@ import CommonComponents from './CommonComponents';
 
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, Progress } from 'antd';
 class S8Ownership extends Component {
 	constructor(props) {
 		super(props);
@@ -24,6 +24,8 @@ class S8Ownership extends Component {
 	render() {
 		return (
 			<div className="container p-0 main-content-container4 mb-5">
+				<Progress percent={50} status="active" showInfo={false} className="pbar" />
+
 				{/* <ProgressBar animated now={50} /> */}
 				<CommonComponents
 					currentStep={this.props.currentStep}

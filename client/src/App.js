@@ -313,7 +313,7 @@ class App extends Component {
         {/* <StepWizard initialStep={1}> */}
         <Router>
           <Switch>
-            <Route exact path="/step1">
+            <Route exact path="/">
           <S1ZipCode
             zipCodeCity={this.zipCodeCity}
             zip_code={(value) => {

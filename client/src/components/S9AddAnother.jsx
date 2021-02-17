@@ -3,7 +3,7 @@ import CommonComponents from './CommonComponents';
 
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, Progress } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 class S9AddAnother extends Component {
 	state = {
@@ -30,6 +30,8 @@ class S9AddAnother extends Component {
 	render() {
 		return (
 			<div className="container p-0 main-content-container4 mb-5">
+				<Progress percent={56} status="active" showInfo={false} className="pbar" />
+
 				{/* <ProgressBar animated now={56} /> */}
 				<CommonComponents
 					currentStep={this.props.currentStep}

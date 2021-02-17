@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button, DatePicker, Input } from "antd";
+import { Form, Button, DatePicker, Input , Progress} from "antd";
 import CommonComponents from './CommonComponents';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 import {Link,withRouter} from "react-router-dom"; 
@@ -64,7 +64,7 @@ class S14DateOfBirth extends Component {
 	render() {
 		return (
 			<div className="container pt-0 main-content-container mb-5">
-				{/* <ProgressBar animated now={87} /> */}
+				<Progress percent={87} status="active" showInfo={false} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}

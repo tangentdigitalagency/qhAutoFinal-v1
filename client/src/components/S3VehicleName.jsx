@@ -46,6 +46,7 @@ class S3VehicleName extends Component {
 					<button
 						value={this.state.names[i]}
 						id="carname"
+						// @ts-ignore
 						vehicleYear
 						className="btn btn-outline-primary btn-font"
 						style={{ width: "100%", height: "80px", textTransform: "capitalize" }}
@@ -87,7 +88,7 @@ class S3VehicleName extends Component {
 	render() {
 		return (
 			<div className="container pt-0 content-container main-content-container3 mb-5">
-				{/* <ProgressBar animated now={18} /> */}
+				<Progress percent={18} status="active" showInfo={false} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}
@@ -104,7 +105,6 @@ class S3VehicleName extends Component {
 					style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
 				>
 					<div className="text-center vehicle-model-padding">
-					<Progress percent={18} status="active" />
 						<h1 className="heading">Vehicle Make</h1>
 						<div className="row">{this.state.names.length !== 0 && this.createVehicleNameBoxes()}</div>
 						<br />

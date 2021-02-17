@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
-import { Form, Select, Button, Checkbox } from "antd";
+import { Form, Select, Button, Checkbox, Progress } from "antd";
 import CommonComponents from './CommonComponents';
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
@@ -26,7 +26,7 @@ this.props.history.push("/step13")
 	render() {
 		return (
 			<div className="container p-0 main-content-container3 mb-5">
-				{/* <ProgressBar animated now={75} /> */}
+				<Progress percent={75} status="active" showInfo={false} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}

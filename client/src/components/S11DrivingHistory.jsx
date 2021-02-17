@@ -4,7 +4,7 @@ import { Form } from "antd";
 import CommonComponents from './CommonComponents';
 import {Link,withRouter} from "react-router-dom"; 
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, Progress } from 'antd';
 // import ProgressBar from 'react-bootstrap/ProgressBar';
 class S11DrivingHistory extends Component {
 	state = {};
@@ -21,7 +21,7 @@ class S11DrivingHistory extends Component {
 	render() {
 		return (
 			<div className="container p-0 main-content-container3 mb-5">
-				{/* <ProgressBar animated now={68} /> */}
+				<Progress percent={68} status="active" showInfo={false} className="pbar" />
 				<CommonComponents
 					currentStep={this.props.currentStep}
 					totalSteps={this.props.totalSteps}
