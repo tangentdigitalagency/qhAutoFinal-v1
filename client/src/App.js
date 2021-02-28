@@ -37,8 +37,8 @@ class App extends Component {
   state = {
     postData: {
       // extra entries
-      lp_campaign_id:"5fe0d62882ef8",
-      lp_campaign_key:"Gn2J4NDMpk38vxyBbQm7",
+      lp_campaign_id: "5fe0d62882ef8",
+      lp_campaign_key: "Gn2J4NDMpk38vxyBbQm7",
       Key: "rRkWg9.WrP.Ahm.Ic9hNr9kZruQMcRpNruwIc9tVxVpWrV4MgexMl8QKHpEE",
       TYPE: "22",
       IP_Address: "",
@@ -62,7 +62,7 @@ class App extends Component {
       Driver_1_Age_When_First_Licensed: 0,
       Driver_1_Occupation: "Student",
       Driver_1_Current_Residence: "Other",
-      tickets_or_claims_in_last_three_years	: "unknown",
+      tickets_or_claims_in_last_three_years: "unknown",
       Driver_1_Insured_Past_30_Days: "unknown",
       Driver_1_Continuously_Insured_Years: 1,
       Driver_1_Additional_Drivers: "No",
@@ -70,7 +70,7 @@ class App extends Component {
       Driver_1_Bankruptcy_In_Past_5_Years: "unknown",
       Driver_1_DUI_DWI_In_The_Past_5_Years: "unknown",
       Driver_1_Reposessions_In_The_Past_5_Years: "unknown",
-      gclid:"",
+      gclid: "",
       // S1
       zip_code: "",
       city: "",
@@ -233,15 +233,15 @@ class App extends Component {
   };
 
   componentDidMount = () => {
-   var str = window.location.href
-   if(str.includes('utm_medium=facebook'))
-   this.setState({Pub_ID: 103}, ()=> {
-     //console.log(this.state.Pub_ID)
-   })
-   if(str.includes('utm_medium=adwords'))
-   this.setState({Pub_ID: 101}, ()=> {
-    //console.log(this.state.Pub_ID)
-  })
+    var str = window.location.href
+    if (str.includes('utm_medium=facebook'))
+      this.setState({ Pub_ID: 103 }, () => {
+        //console.log(this.state.Pub_ID)
+      })
+    if (str.includes('utm_medium=adwords'))
+      this.setState({ Pub_ID: 101 }, () => {
+        //console.log(this.state.Pub_ID)
+      })
   };
 
   zipCodeCity = (value) => {
@@ -314,263 +314,265 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/">
-          <S1ZipCode
-            zipCodeCity={this.zipCodeCity}
-            zip_code={(value) => {
-              console.log(document.getElementById("jornaya_lead_id").value);
-              console.log(document.getElementsByTagName("script")[0].src);
-              console.log('value through value',value)
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  zip_code: value,
-                  gclid: document.getElementById("gclid_field").value,
-                  jornaya_lead_id: document.getElementById("jornaya_lead_id").value,
-                  trusted_form_cert_id: document.getElementById(
-                    "trusted_form_cert_id_0"
-                  ).value,
-                },
-              }
-              );
-              console.log(document.getElementById("trusted_form_cert_id_0"));
-            }}
-            city={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, city: value },
-              })
-            }
-            state={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, state: value },
-              })
-            }
-            active_license={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  active_license: value,
-                },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step2">
-          <S2VehicleYear
-            yearForVehicleName={this.yearForVehicleName}
-            zipCodeCity={this.state.zipCodeCity}
-            vehicle_year={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, vehicle_year: value },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step3">
-          <S3VehicleName
-            year={this.state.year}
-            nameForVehicalModel={this.nameForVehicalModel}
-            vehicle_make={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, vehicle_make: value },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step4">
-          <S4VehicleModel
-            searchModel={{ year: this.state.year, make: this.state.name }}
-            vehicle_model={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, vehicle_model: value },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step5">
-          <S5PrimaryUse
-            name={this.state.name}
-            vehicle_primary_use={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  vehicle_primary_use: value,
-                },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step6">
-          <S6AnnualMileage
-            annual_mileage={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  annual_mileage: value,
-                },
-              })
-            }
-          />
-           </Route>
-           <Route path="/step7">
-          <S7CoverageLevel
-            desired_coverage_level={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  desired_coverage_level: value,
-                },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step8">
-          <S8Ownership
-            name={this.state.name}
-            maintainTable={this.maintainTable}
-            vehicleForPostData2={this.vehicleForPostData2}
-            vehicle_ownership={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  vehicle_ownership: value,
-                },
-              })
-            }
-          />
-          </Route>
-          <Route exact path="/step9">
-          <S9AddAnother
-            table={this.state.table}
-            deleteTableItem={this.deleteTableItem}
-            postData2={this.state.postData2}
-            deleteVehicleForPostData2={this.deleteVehicleForPostData2}
-          />
-          </Route>
-          <Route path="/step10">
-          <S10CurrentAutoInsurance
-            currentCompanyForPostData2={this.currentCompanyForPostData2}
-            continuousCoverageForPostData2={this.continuousCoverageForPostData2}
-          />
-          </Route>
-          <Route path="/step11">
-          <S11DrivingHistory
-            sr22ForPostData2={this.sr22ForPostData2}
-            Driver_1_Filing_Required={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  Driver_1_Filing_Required: value,
-                },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step12">
-          <S12DriverData
-            homeOwnershipForPostData2={this.homeOwnershipForPostData2}
-            gender={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, gender: value },
-              })
-            }
-            married={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  married: value,
-                },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step13">
-          <S13Education
-            education_level={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, education_level: value },
-              })
-            }
-            credit_score={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  credit_score: value,
-                },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step14">
-          <S14DateOfBirth
-            dob={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, dob: value },
-              })
-            }
-          />
-           </Route>
-           <Route path="/step15">
-          <S15YourName
-            username={this.username}
-            first_name={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  first_name: value,
-                },
-              })
-            }
-            last_name={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, last_name: value },
-              })
-            }
-          />
-          </Route>
-          <Route path="/step16">
-          <S16YourAddress
-            username={this.state.username}
-            postData={this.state.postData}
-            copyValuesToPostData2={this.copyValuesToPostData2}
-            address={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, address: value },
-              })
-            }
-            email_address={(value) =>
-              this.setState({
-                postData: { ...this.state.postData, email_address: value },
-              })
-            }
-            phone_home={(value) =>
-              this.setState({
-                postData: {
-                  ...this.state.postData,
-                  phone_home: value,
-                },
-              })
-            }
-          />
-          </Route>
-          <Route path="/thank-you">
-          <S17Media />
-          </Route>
+              <S1ZipCode
+                zipCodeCity={this.zipCodeCity}
+                zip_code={(value) => {
+                  console.log(document.getElementById("jornaya_lead_id").value);
+                  console.log(document.getElementsByTagName("script")[0].src);
+                  console.log('value through value', value)
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      zip_code: value,
+                      gclid: document.getElementById("gclid_field").value,
+                      jornaya_lead_id: document.getElementById("jornaya_lead_id").value,
+                      trusted_form_cert_id: document.getElementById(
+                        "trusted_form_cert_id_0"
+                      ).value,
+                    },
+                  }
+                  );
+                  console.log(document.getElementById("trusted_form_cert_id_0"));
+                }}
+                city={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, city: value },
+                  })
+                }
+                state={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, state: value },
+                  })
+                }
+                active_license={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      active_license: value,
+                    },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step2">
+              <S2VehicleYear
+                yearForVehicleName={this.yearForVehicleName}
+                zipCodeCity={this.state.zipCodeCity}
+                vehicle_year={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, vehicle_year: value },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step3">
+              <S3VehicleName
+                year={this.state.year}
+                nameForVehicalModel={this.nameForVehicalModel}
+                vehicle_make={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, vehicle_make: value },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step4">
+              <S4VehicleModel
+                searchModel={{ year: this.state.year, make: this.state.name }}
+                vehicle_model={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, vehicle_model: value },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step5">
+              <S5PrimaryUse
+                name={this.state.name}
+                vehicle_primary_use={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      vehicle_primary_use: value,
+                    },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step6">
+              <S6AnnualMileage
+                annual_mileage={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      annual_mileage: value,
+                    },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step7">
+              <S7CoverageLevel
+                desired_coverage_level={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      desired_coverage_level: value,
+                    },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step8">
+              <S8Ownership
+                name={this.state.name}
+                maintainTable={this.maintainTable}
+                vehicleForPostData2={this.vehicleForPostData2}
+                vehicle_ownership={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      vehicle_ownership: value,
+                    },
+                  })
+                }
+              />
+            </Route>
+            <Route exact path="/step9">
+              <S9AddAnother
+                table={this.state.table}
+                deleteTableItem={this.deleteTableItem}
+                postData2={this.state.postData2}
+                deleteVehicleForPostData2={this.deleteVehicleForPostData2}
+              />
+            </Route>
+            <Route path="/step10">
+              <S10CurrentAutoInsurance
+                currentCompanyForPostData2={this.currentCompanyForPostData2}
+                continuousCoverageForPostData2={this.continuousCoverageForPostData2}
+              />
+            </Route>
+            <Route path="/step11">
+              <S11DrivingHistory
+                sr22ForPostData2={this.sr22ForPostData2}
+                Driver_1_Filing_Required={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      Driver_1_Filing_Required: value,
+                    },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step12">
+              <S12DriverData
+                homeOwnershipForPostData2={this.homeOwnershipForPostData2}
+                gender={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, gender: value },
+                  })
+                }
+                married={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      married: value,
+                    },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step13">
+              <S13Education
+                education_level={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, education_level: value },
+                  })
+                }
+                credit_score={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      credit_score: value,
+                    },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step14">
+              <S14DateOfBirth
+                dob={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, dob: value },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step15">
+              <S15YourName
+                username={this.username}
+                first_name={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      first_name: value,
+                    },
+                  })
+                }
+                last_name={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, last_name: value },
+                  })
+                }
+              />
+            </Route>
+            <Route path="/step16">
+              <S16YourAddress
+                username={this.state.username}
+                postData={this.state.postData}
+                copyValuesToPostData2={this.copyValuesToPostData2}
+                address={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, address: value },
+                  })
+                }
+                email_address={(value) =>
+                  this.setState({
+                    postData: { ...this.state.postData, email_address: value },
+                  })
+                }
+                phone_home={(value) =>
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      phone_home: value,
+                    },
+                  })
+                }
+              />
+            </Route>
+
+            <Route path="/thank-you">
+              <S17Media />
+            </Route>
+
           </Switch>
-          </Router>
+        </Router>
         {/* </StepWizard> */}
-        <Grid container xs={12} style={{paddingLeft:'10vw',paddingRight:'10vw' }}>
-          <Grid item md={6} xs={12} style={{display: 'flex', justifyContent: 'center'}}>
-            <img style={{width: '370px',borderRadius: '20px'}} src={require("./man.png")} alt="Free Insurance Quote"/>
+        <Grid container xs={12} style={{ paddingLeft: '10vw', paddingRight: '10vw' }}>
+          <Grid item md={6} xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
+            <img style={{ width: '370px', borderRadius: '20px' }} src={require("./man.png")} alt="Free Insurance Quote" />
           </Grid>
           <Grid item md={6} xs={12}>
-                <Grid item xs={12}>
-                  <p className="footerText1" >Free Car Insurance Quotes</p>
-                </Grid>
-                <Grid item xs={12}>
-                  <p className="footerText2" style={{textAlign:"center"}}>
-                  Most people don’t enjoy having someone try to sell them something—that’s just human nature. But what’s even more frustrating is having someone try to sell you something when you kind of think you might need it, but you’re not sure. So, the first thing you need to do when it comes to choosing a <strong>car insurance</strong> company is figure out exactly what you need. That way, you can have much more control over the purchasing experience, because you’ll know what you are shopping for—and what you’re not interested in buying. Get your <strong>free auto quote</strong> with Quotehound today and compare <b>real quotes  </b>online!
+            <Grid item xs={12}>
+              <p className="footerText1" >Free Car Insurance Quotes</p>
+            </Grid>
+            <Grid item xs={12}>
+              <p className="footerText2" style={{ textAlign: "center" }}>
+                Most people don’t enjoy having someone try to sell them something—that’s just human nature. But what’s even more frustrating is having someone try to sell you something when you kind of think you might need it, but you’re not sure. So, the first thing you need to do when it comes to choosing a <strong>car insurance</strong> company is figure out exactly what you need. That way, you can have much more control over the purchasing experience, because you’ll know what you are shopping for—and what you’re not interested in buying. Get your <strong>free auto quote</strong> with Quotehound today and compare <b>real quotes  </b>online!
                   </p>
-                </Grid>
+            </Grid>
           </Grid>
         </Grid>
 

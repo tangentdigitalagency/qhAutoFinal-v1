@@ -5,7 +5,7 @@ import XMLParser from "react-xml-parser";
 import "./S2VehicleYear.css";
 import ProgressLottie from "./ProgressLottie";
 import CommonComponents from "./CommonComponents";
-import {Link,withRouter} from "react-router-dom"; 
+import { Link, withRouter } from "react-router-dom";
 import { ArrowLeftOutlined } from '@ant-design/icons';
 
 // import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -34,7 +34,7 @@ class S15YourName extends Component {
     console.log("Post Data 2 = ");
     console.log(this.props.copyValuesToPostData2());
     // this.props.nextStep();
-  this.props.history.push("/step17")
+    this.props.history.push("/thank-you")
     this.setState(
       {
         ...this.state,
@@ -114,18 +114,18 @@ class S15YourName extends Component {
     const { response, loading } = this.state;
     return (
       <div className="container pt-0 content-container main-content-container3 mb-5">
-				<Progress percent={100} status="active" showInfo={true} className="pbar" />
+        <Progress percent={100} status="active" showInfo={true} className="pbar" />
         <CommonComponents
           currentStep={this.props.currentStep}
           totalSteps={this.props.totalSteps}
           previousStep={this.props.previousStep}
         />
 
-  <Link to="/step15">
-                        <Button type="primary" shape="circle"    >
-                            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
-                        </Button>
-                        </Link>
+        <Link to="/step15">
+          <Button type="primary" shape="circle"    >
+            <ArrowLeftOutlined className="anticon" style={{ verticalAlign: "0px", "WebkitBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "MozBoxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)", "boxShadow": "-2px 7px 62px -30px rgba(125,200,250,0.72)" }} />
+          </Button>
+        </Link>
 
         <br />
         <div
