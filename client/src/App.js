@@ -317,7 +317,7 @@ class App extends Component {
               <S1ZipCode
                 zipCodeCity={this.zipCodeCity}
                 zip_code={(value) => {
-                  console.log(document.getElementById("jornaya_lead_id").value);
+                  console.log(document.getElementById("leadid_token").value);
                   console.log(document.getElementsByTagName("script")[0].src);
                   console.log('value through value', value)
                   this.setState({
@@ -325,7 +325,7 @@ class App extends Component {
                       ...this.state.postData,
                       zip_code: value,
                       gclid: document.getElementById("gclid_field").value,
-                      jornaya_lead_id: document.getElementById("jornaya_lead_id").value,
+                      jornaya_lead_id: document.getElementById("leadid_token").value,
                       trusted_form_cert_id: document.getElementById(
                         "trusted_form_cert_id_0"
                       ).value,
