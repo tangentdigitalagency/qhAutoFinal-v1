@@ -70,6 +70,172 @@
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet" />
 
 	<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0097/0793.js" async="async"></script>
+	
+	
+	
+	<!-- Retreaver Script --> 
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+
+
+
+<script type="text/javascript">
+(function () {
+var scriptElement = document.createElement('script');
+scriptElement.type = 'text/javascript';
+scriptElement.async = true;
+scriptElement.defer = true;
+scriptElement.src = document.location.protocol + '//dist.routingapi.com/jsapi/v1/retreaver.min.js';
+scriptElement.onload = scriptElement.onreadystatechange = function () {
+
+
+
+Retreaver.configure({
+host: 'api.routingapi.com',
+prefix: document.location.protocol == 'https:' ? 'https' : 'http'
+});
+
+
+
+//Initialize Campaign Instance
+var campaign = new Retreaver.Campaign({campaign_key: 'b0ce8b42256fdf336cc1f8ec46e2fe1c'});
+
+
+
+
+//Replace numbers on the page using auto_replace_numbers
+campaign.auto_replace_numbers(function (number) {
+
+
+
+
+//Initialize Variables to store form values
+var first_name, last_name, email, phone_number;
+
+
+
+//Assign form values to Retreaver tags
+function updateTags() {
+first_name = document.getElementById('nameForm_firstName').value;
+last_name = document.getElementById('nameForm_lastName').value;
+email = document.getElementById('addressForm_email').value;
+phone_number = document.getElementById('addressForm_phoneNumber').value;
+
+
+
+//update tags associated with displayed number, key:value
+//key is created within retreaver platform,
+//value is pulled from our previously stored variables
+number.replace_tags({
+first_name: first_name,
+last_name: last_name,
+email: email,
+phone_number: phone_number
+});
+}
+
+
+
+function debounce(func, wait, immediate) {
+var timeout;
+return function () {
+var context = this, args = arguments;
+var later = function () {
+timeout = null;
+if (!immediate) func.apply(context, args);
+};
+
+
+
+var callNow = immediate && !timeout;
+clearTimeout(timeout);
+timeout = setTimeout(later, wait);
+if (callNow) func.apply(context, args);
+}
+}
+
+
+
+var debounced = debounce(updateTags, 250);
+$('#addressForm').change(debounced).submit(updateTags);
+$('input').keyup(debounced);
+debounced();
+
+
+
+});//end of auto replace numbers
+
+
+
+//OPTIONAL: Click-To-Call Functionality Starts here
+$('#form').submit( function () {
+
+
+
+var first_name, last_name, email, phone_number;
+
+
+
+first_name = document.getElementById('nameForm_firstName').value;
+last_name = document.getElementById('nameForm_lastName').value;
+email = document.getElementById('addressForm_email').value;
+phone_number = document.getElementById('addressForm_phoneNumber').value;
+
+
+
+//Fetch a campaign number to initiate a call with
+campaign.request_number({}, function (retreaver_number) {
+
+
+
+//Initiate a call using a requested number, pass tags in "key:value" format
+retreaver_number.initiate_call(phone_number, {
+first_name: first_name,
+last_name: last_name,
+email: email,
+phone_number: phone_number
+}, callInitiated); //Initiate Call
+
+
+
+}) //Campaign.request_number
+
+
+
+});//On Form Submit
+
+
+
+//Callback function used to notify form filler of impending call
+function callInitiated() {
+alert("Your form has been successfully submitted, An agent will call you shortly.");
+}
+
+
+
+// Click-To-Call Functionality Ends here
+
+
+
+};//On load
+
+
+
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(scriptElement);
+
+
+
+})();
+
+
+
+</script>
+	
+	<script type="text/javascript">(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.defer=!0;a.src=document.location.protocol+"//dist.routingapi.com/jsapi/v1/retreaver.min.js";a.onload=a.onreadystatechange=function(){Retreaver.configure({host:"api.routingapi.com",prefix:"https:"==document.location.protocol?"https":"http"});(new Retreaver.Campaign({campaign_key:"b0ce8b42256fdf336cc1f8ec46e2fe1c"})).auto_replace_numbers()};(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)})();</script>
+	
+	<!-- End of retreaver --> 
+
+
 
 	 
 
