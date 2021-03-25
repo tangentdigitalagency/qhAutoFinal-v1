@@ -98,7 +98,7 @@ class S1ZipCode extends Component {
                         <i className="fa fa-map-marker" style={{ fontSize: "36px" }}></i>
             <br />
             <h1 className="heading">Enter Your Zip Code</h1>
-            <Form name="customized_form_controls" onFinish={this.onFinish}>
+            <Form name="customized_form_controls" id="form"  onFinish={this.onFinish}>
               <Form.Item
                 name="zipcode"
                 style={{ width: "100%" }}
