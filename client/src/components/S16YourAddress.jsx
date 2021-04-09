@@ -34,7 +34,7 @@ class S15YourName extends Component {
     console.log("Post Data 2 = ");
     console.log(this.props.copyValuesToPostData2());
     // this.props.nextStep();
-    this.props.history.push("/thank-you")
+    this.props.history.push("/thank-you-auto")
     this.setState(
       {
         ...this.state,
@@ -57,13 +57,7 @@ class S15YourName extends Component {
 
   PostDataOfBusinessInsurance = (postData) => {
     console.log(postData);
-    Axios.post(
-      'https://quotehound.leadspediatrack.com/post.do',
-      null,
-      {
-        params: this.props.postData,
-      }
-    )
+    Axios.post('https://quotehound.leadspediatrack.com/post.do', null, { params: this.props.postData, })
       .then((res) => {
         var xml = new XMLParser().parseFromString(res.data);
         if (xml.children[0].value === "Error") {

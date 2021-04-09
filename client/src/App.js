@@ -39,15 +39,12 @@ class App extends Component {
       // extra entries
       lp_campaign_id: "5fe0d62882ef8",
       lp_campaign_key: "Gn2J4NDMpk38vxyBbQm7",
-      Key: "rRkWg9.WrP.Ahm.Ic9hNr9kZruQMcRpNruwIc9tVxVpWrV4MgexMl8QKHpEE",
-      TYPE: "22",
       IP_Address: "",
-      SRC: "quotehoundgoogleautoform",
-      Pub_ID: 13,
-      Sub_ID: 12,
+      lp_s1: 13,
+      lp_s2: 12,
       trusted_form_cert_id: "",
       User_Agent: "",
-      Landing_Page: "quotehound.com",
+      Landing_Page: "auto.quotehound.com",
       TCPA_Consent: "Yes",
       TCPA_Language:
         "By hitting submit below, I provide my express written consent to the following. Telemarketing calls, text messages, emails, and postal mail from this Web site, our marketing and re-marketing network, and up to eight insurance companies or their affiliates  or representatives at the phone number (including wireless number), email address, and postal address provided by me. Telemarketing calls, text messages, emails, and postal mail (including wireless number), email address, and postal address provided by me. Calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automated Telephone Dialing System or prerecorded or artificial voices. Electronic video monitoring and recordation of my activities on this Site; and I acknowledge that I may revoke my consent at any time by Calling 1 888-316-1350 or emailing “STOP” to  optout@quantumassurance.com.  I AGREE TO ALL OF THE ABOVE AND SEND MY QUOTE",
@@ -233,15 +230,43 @@ class App extends Component {
   };
 
   componentDidMount = () => {
-    var str = window.location.href
-    if (str.includes('utm_medium=facebook'))
-      this.setState({ Pub_ID: 103 }, () => {
-        //console.log(this.state.Pub_ID)
-      })
-    if (str.includes('utm_medium=adwords'))
-      this.setState({ Pub_ID: 101 }, () => {
-        //console.log(this.state.Pub_ID)
-      })
+    
+
+// var str = window.location.href;
+
+// if (str.includes('utm_medium=facebook'))
+//   this.setState({
+//     postData: {
+//       lp_s1: 103,
+//       lp_s2: 103
+
+//     }
+//   })
+
+//   if(str.includes('utm_medium=bing'))
+//     this.setState({
+//       postData: {
+//         lp_s1: 108,
+//         lp_s2: 108
+//       }
+//     })
+
+// if  (str.includes('utm_medium=adwords'))
+//   this.setState({
+//     postData: {
+      
+//       lp_s1: 101,
+//       lp_s2: 101
+//     }
+//   })
+
+// if (str.includes('/'))
+//   this.setState({ 
+//     postData: {
+//       lp_s1: 13,
+//       lp_s2: 13
+//     }
+//   })
   };
 
   zipCodeCity = (value) => {
@@ -553,7 +578,7 @@ class App extends Component {
               />
             </Route>
 
-            <Route path="/thank-you">
+            <Route path="/thank-you-auto">
               <S17Media />
             </Route>
 

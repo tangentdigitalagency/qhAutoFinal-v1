@@ -66,177 +66,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
 
 
-
-<script type="text/javascript">
-(function () {
-var scriptElement = document.createElement('script');
-scriptElement.type = 'text/javascript';
-scriptElement.async = true;
-scriptElement.defer = true;
-scriptElement.src = document.location.protocol + '//dist.routingapi.com/jsapi/v1/retreaver.min.js';
-scriptElement.onload = scriptElement.onreadystatechange = function () {
-
-
-
-Retreaver.configure({
-host: 'api.routingapi.com',
-prefix: document.location.protocol == 'https:' ? 'https' : 'http'
-});
-
-
-
-//Initialize Campaign Instance
-var campaign = new Retreaver.Campaign({campaign_key: 'b0ce8b42256fdf336cc1f8ec46e2fe1c'});
-
-
-
-
-//Replace numbers on the page using auto_replace_numbers
-campaign.auto_replace_numbers(function (number) {
-
-
-
-
-//Initialize Variables to store form values
-var first_name, last_name, email, phone_number;
-
-
-
-//Assign form values to Retreaver tags
-function updateTags() {
-first_name = document.getElementById('nameForm_firstName').value;
-last_name = document.getElementById('nameForm_lastName').value;
-email = document.getElementById('addressForm_email').value;
-phone_number = document.getElementById('addressForm_phoneNumber').value;
-
-
-
-//update tags associated with displayed number, key:value
-//key is created within retreaver platform,
-//value is pulled from our previously stored variables
-number.replace_tags({
-first_name: first_name,
-last_name: last_name,
-email: email,
-phone_number: phone_number
-});
-}
-
-
-
-function debounce(func, wait, immediate) {
-var timeout;
-return function () {
-var context = this, args = arguments;
-var later = function () {
-timeout = null;
-if (!immediate) func.apply(context, args);
-};
-
-
-
-var callNow = immediate && !timeout;
-clearTimeout(timeout);
-timeout = setTimeout(later, wait);
-if (callNow) func.apply(context, args);
-}
-}
-
-
-
-var debounced = debounce(updateTags, 250);
-$('#addressForm').change(debounced).submit(updateTags);
-$('input').keyup(debounced);
-debounced();
-
-
-
-});//end of auto replace numbers
-
-
-
-//OPTIONAL: Click-To-Call Functionality Starts here
-$('#form').submit( function () {
-
-
-
-console.log("setting vars");
-var first_name, last_name, email, phone_number;
-
-
-
-first_name = document.getElementById('nameForm_firstName').value;
-	console.log(first_name);
-last_name = document.getElementById('nameForm_lastName').value;
-	console.log(last_name);
-email = document.getElementById('addressForm_email').value;
-	console.log(email);
-phone_number = document.getElementById('addressForm_phoneNumber').value;
-	console.log(phone_number);
-	
-
-	console.log("Set Values to vars);
-	
-	
-
-
-
-//Fetch a campaign number to initiate a call with
-campaign.request_number({}, function (retreaver_number) {
-
-
-console.log("set request number");
-//Initiate a call using a requested number, pass tags in "key:value" format
-retreaver_number.initiate_call(phone_number, {
-first_name: first_name,
-last_name: last_name,
-email: email,
-phone_number: phone_number
-}, callInitiated); //Initiate Call
-		
-		console.log("call initiated");
-
-
-
-}) //Campaign.request_number
-
-
-
-});//On Form Submit
-
-
-
-//Callback function used to notify form filler of impending call
-function callInitiated() {
-alert("Your form has been successfully submitted, An agent will call you shortly.");
-	
-	console.log("Call init func");
-}
-
-
-
-// Click-To-Call Functionality Ends here
-
-
-
-};//On load
-
-
-
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(scriptElement);
-
-
-
-})();
-
-
-
-</script>
-	
-	<script type="text/javascript">(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.defer=!0;a.src=document.location.protocol+"//dist.routingapi.com/jsapi/v1/retreaver.min.js";a.onload=a.onreadystatechange=function(){Retreaver.configure({host:"api.routingapi.com",prefix:"https:"==document.location.protocol?"https":"http"});(new Retreaver.Campaign({campaign_key:"b0ce8b42256fdf336cc1f8ec46e2fe1c"})).auto_replace_numbers()};(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)})();</script>
-	
-	<!-- End of retreaver --> 
-
     
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144726423-1">
@@ -287,34 +116,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 	</script>
 
-	<!-- Generate a TrustedForm Certificate -->
-	<script type="text/javascript">
-		(function () {
-			var field = 'trusted_form_cert_id';
-			var provideReferrer = false;
-			var tf = document.createElement('script');
-			tf.type = 'text/javascript'; tf.async = true;
-			tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
-				'://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) + '&field=' + escape(field) + '&l=' + new Date().getTime() + Math.random();
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s);
-		}
-		)();
-	</script>
-	<!-- Lead Id Script-->
-
 	<script id="LeadiDscript" type="text/javascript">
-		(function () {
-			var s = document.createElement('script');
-			s.id = 'LeadiDscript_campaign';
-			s.type = 'text/javascript';
-			s.async = true;
-			s.src = '//create.lidstatic.com/campaign/63fc01e1-c7b1-0501-2492-0f8e4397c92c.js?snippet_version=2';
-			var LeadiDscript = document.getElementById('LeadiDscript');
-			LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
-		})();
-	</script>
-	<noscript><img
-			src='//create.leadid.com/noscript.gif?lac=45a2434e-3343-bea3-12ad-6220f9a33148&lck=63fc01e1-c7b1-0501-2492-0f8e4397c92c&snippet_version=2' /></noscript>
+(function() {
+var s = document.createElement('script');
+s.id = 'LeadiDscript_campaign';
+s.type = 'text/javascript';
+s.async = true;
+s.src = '//create.lidstatic.com/campaign/63fc01e1-c7b1-0501-2492-0f8e4397c92c.js?snippet_version=2';
+var LeadiDscript = document.getElementById('LeadiDscript');
+LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
+})();
+</script>
+<noscript><img src='//create.leadid.com/noscript.gif?lac=45a2434e-3343-bea3-12ad-6220f9a33148&lck=63fc01e1-c7b1-0501-2492-0f8e4397c92c&snippet_version=2' /></noscript>
+
 	<input id="leadid_token" name="universal_leadid" type="hidden" value="" />
 
     <input type="hidden" id="gclid_field" name="gclid_field" value="">
