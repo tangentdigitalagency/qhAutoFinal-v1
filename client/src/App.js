@@ -99,6 +99,7 @@ class App extends Component {
       // S12
       // Homeowner
       married: "Single",
+      homeowner: "",
       gender: "",
       // S13
       education_level: "",
@@ -286,7 +287,7 @@ class App extends Component {
   };
 
   homeOwnershipForPostData2 = (value) => {
-    this.setState({ home_ownership: value });
+    this.setState({ homeowner: value });
   };
   sr22ForPostData2 = (value) => {
     this.setState({ sr_22: value });
